@@ -1,0 +1,202 @@
+
+$hover-color: #4857FC;
+$text-hover-color: #FFF;
+$transition-timing: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Menu Styles
+.custom-menu.ant-menu-dark {
+  background: transparent;
+  .ant-menu-item {
+    margin: 4px 8px;
+    border-radius: 6px;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    align-items: center;
+    transition: all $transition-timing !important;
+    color: black;
+    font-weight: 500;
+
+    img {
+        min-width: 20px !important;
+        width: 25px !important;
+        height: 25px !important;
+        // object-fit: contain;
+        filter: brightness(0);
+        transition: all $transition-timing;
+    }
+
+    &-selected {
+      background-color: $hover-color;
+      color: $text-hover-color;
+
+      img {
+        filter: brightness(0) invert(1);
+        transition: filter $transition-timing;
+      }
+      a {
+        color: $text-hover-color;
+      }
+    }
+
+    &:hover {
+      background-color: $hover-color !important;
+      color: $text-hover-color !important;
+
+      img {
+        filter: brightness(0) invert(1) !important;
+        transition: filter $transition-timing;
+      }
+      a {
+        color: $text-hover-color !important;
+      }
+    }
+  }
+}
+
+// Layout
+.sidebar-container {
+  background-color: $text-hover-color;
+  // min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all $transition-timing;
+  border-right: none;
+  transform: translateX(0);
+  position: fixed !important;
+  z-index: 10;
+  top: 0;
+  right: 0;
+
+  &.ant-layout-sider-collapsed {
+    transition: all $transition-timing;
+  }
+
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 30px 20px;
+    justify-content: center;
+    // height: 80px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+
+    img {
+      transition: opacity $transition-timing;
+      margin-inline: auto;
+    }
+  }
+
+  .sidebar-scrollable {
+    // flex: 1; 
+    height: 100dvh; 
+    overflow-y: auto;
+    padding-top: 10px;
+    padding-bottom: 120px;
+    transition: padding $transition-timing;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+  }
+
+  .sidebar-toggle,
+  .mobile-hide-button {
+    color: black;
+    outline: none !important;
+    box-shadow: none !important;
+    transition: all $transition-timing;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: -20px;
+    top: 20px;
+    border: 1px solid #E2E8F0;
+    background-color: $text-hover-color;
+    z-index: 20;
+
+    &:hover {
+      background-color: $hover-color !important;
+      color: $text-hover-color !important;
+    }
+
+    &:focus {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  }
+}
+
+// Mobile and Tablet Styles
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-timing;
+}
+
+.mobile-sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  right: 10px;
+  z-index: 999;
+  color: black !important;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #E2E8F0;
+  // padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  transition: all $transition-timing;
+
+  // @media (max-width: 768px) {
+  //   top: 30px;
+  // }
+
+  &:hover {
+    background-color: $hover-color !important;
+    color: $text-hover-color !important;
+  }
+}
+
+// Responsive Drawer Behavior
+@media (max-width: 991px) {
+  .sidebar-overlay {
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .sidebar-container {
+    position: fixed !important;
+    top: 0;
+    right: -100%;
+    z-index: 1001;
+    transition: all $transition-timing cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.visible {
+      right: 0;
+      box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+}

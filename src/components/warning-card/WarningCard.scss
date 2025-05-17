@@ -1,0 +1,51 @@
+$button-bg: #fff;
+$button-radius: 0.75rem;
+$button-shadow: 0 2px 8px 0 rgba(30, 34, 40, 0.06);
+$button-text: #f59e42;
+
+.warning-card {
+    &__container {
+      box-shadow: 0 1px 3px rgba(255, 204, 0, 0.1);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .warning-card {
+      &__container {
+        padding: 1rem 0.75rem;
+      }
+    }
+  }
+
+  .alert-bar__button-container {
+    background: $button-bg;
+    border-radius: $button-radius;
+    box-shadow: $button-shadow;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .alert-bar__button {
+    color: $button-text;
+    font-weight: 800;
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    min-width: 150px;
+
+    @media (max-width: 640px) {
+      font-size: 0.9rem;
+      min-width: 100px;
+    }
+  }
+
+  .alert-bar__icon {
+    flex-shrink: 0;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  

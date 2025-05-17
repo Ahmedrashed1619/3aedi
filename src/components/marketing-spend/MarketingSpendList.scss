@@ -1,0 +1,73 @@
+$card-bg: #fff;
+$card-radius: 1.5rem;
+$card-shadow: 0 4px 24px 0 rgba(30, 34, 40, 0.06);
+$card-border: 1px solid #f3f4f6;
+$card-padding: 1.5rem;
+
+.card-base {
+  background: $card-bg;
+  border-radius: $card-radius;
+  box-shadow: $card-shadow;
+  border: $card-border;
+  padding: $card-padding;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s;
+}
+
+.marketing-spend-card {
+  @extend .card-base;
+  width: 100%;
+}
+
+.marketing-spend-card__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.marketing-spend-card__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.marketing-spend-card__platform {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.marketing-spend-card__icon {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+}
+
+.marketing-spend-card__platform-name {
+  font-weight: 500;
+  color: #334155;
+}
+
+.marketing-spend-card__amount-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.marketing-spend-card__amount {
+  color: #1e293b;
+  font-weight: bold;
+}
+
+.marketing-spend-card__date {
+  font-size: 0.85rem;
+  color: #94a3b8;
+} 

@@ -1,0 +1,124 @@
+$main-bg: #fff;
+$main-radius: 1.5rem;
+$main-shadow: 0 4px 24px 0 rgba(30, 34, 40, 0.06);
+$header-color: #1e293b;
+$tab-bg: #f3f4f6;
+$tab-active-bg: #0f172a;
+$tab-color: #64748b;
+$tab-active-color: #fff;
+$legend-profit: #2563eb;
+$legend-orders: #cbd5e1;
+
+.rtl {
+  direction: rtl;
+}
+
+.weekly-chart-card {
+  background: $main-bg;
+  width: 100%;
+}
+
+.header-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  .title {
+    font-weight: bold;
+    color: $header-color;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 0.25rem;
+
+    .tab {
+      background: $tab-bg;
+      color: $tab-color;
+      border-radius: 1rem;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+
+      @media (width <= 992px) {
+        font-size: 0.75rem;
+      }
+
+      @media (width <= 768px) {
+        padding: 0.5rem 1.5rem;
+      }
+
+      &.active {
+        background: $tab-active-bg;
+        color: $tab-active-color;
+        box-shadow: 0 2px 8px 0 rgba(30, 34, 40, 0.10);
+      }
+    }
+  }
+}
+
+.chart-area {
+  height: 16rem;
+  width: 100%;
+  position: relative;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    color: $header-color;
+    font-weight: 500;
+
+    .dot {
+      width: 0.65rem;
+      height: 0.65rem;
+      border-radius: 50%;
+      margin-left: 0.4rem;
+      
+      &.profit {
+        background: $legend-profit;
+      }
+      
+      &.orders {
+        background: $legend-orders;
+      }
+    }
+  }
+}
+
+// Responsive Styles
+@media (max-width: 768px) {
+  .header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    
+    .title {
+      margin-bottom: 1rem;
+    }
+    
+    .tabs {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+  .chart-area {
+    height: 14rem;
+  }
+  
+  .legend {
+    margin-top: 1rem;
+  }
+}

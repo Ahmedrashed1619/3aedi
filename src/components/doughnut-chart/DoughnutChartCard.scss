@@ -1,0 +1,41 @@
+.doughnut-card__chart-container {
+  position: relative;
+  width: 9rem;
+  height: 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.5rem auto;
+}
+
+.doughnut-card__center-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.doughnut-card__center-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #222;
+  line-height: 1.1;
+}
+
+.doughnut-card__percentage {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 0.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.doughnut-card__sub-label {
+  font-size: 1rem;
+  color: #22c55e;
+  margin-top: 0.15rem;
+  font-weight: 700;
+}

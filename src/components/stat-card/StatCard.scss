@@ -1,0 +1,29 @@
+$card-shadow: 0 4px 24px 0 rgba(30, 34, 40, 0.06);
+$gradient-bg: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+$gradient-shadow: 0 4px 24px 0 rgba(80, 112, 255, 0.10);
+
+.stat-card {
+  box-shadow: $card-shadow;
+  height: 100%;
+
+  .value {
+    img {
+      filter: brightness(0);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &.special-card {
+      img {
+        filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(90%) contrast(95%) !important;
+      }
+    }
+  }
+
+  &:hover {
+    .value {
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+}

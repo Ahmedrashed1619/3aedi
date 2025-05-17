@@ -1,0 +1,16 @@
+.layout {
+   position: relative;
+   z-index: 1;
+    .content {
+      margin-right: 256px;
+      transition: margin-right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &.collapsed {
+         margin-right: 80px;
+      }
+
+      @media (max-width: 991.9px) {
+         margin-right: 0;
+      }
+    }
+}
