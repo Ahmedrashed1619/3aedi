@@ -23,6 +23,10 @@
   font-weight: 800;
   color: #222;
   line-height: 1.1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
 }
 
 .doughnut-card__percentage {

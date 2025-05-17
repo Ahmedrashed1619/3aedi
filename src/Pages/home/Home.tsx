@@ -96,6 +96,7 @@ const Home = () => {
             { label: "التسويق", value: "﷼1062.69", color: "#F97316" },
           ]}
           date="22 سبتمبر 2024"
+          isCurency={true}
         />
         <MarketingSpendList items={costItems} total={682} title='إجمالي المصاريف' />
       </div>

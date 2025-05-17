@@ -20,6 +20,7 @@ interface DoughnutChartCardProps {
   legends?: LegendItem[];
   subLabel?: string;
   date?: string;
+  isCurency?: boolean;
 }
 
 const DoughnutChartCard: React.FC<DoughnutChartCardProps> = ({
@@ -33,6 +34,7 @@ const DoughnutChartCard: React.FC<DoughnutChartCardProps> = ({
   arrowDirection = 'up',
   subLabel,
   date,
+  isCurency = false,
 }) => {
 
   const chartData = {
@@ -44,15 +46,6 @@ const DoughnutChartCard: React.FC<DoughnutChartCardProps> = ({
         borderWidth: 0,
       },
     ],
-  };
-
-  const options = {
-    cutout: '70%',
-    plugins: {
-      legend: { display: false },
-      tooltip: { enabled: true },
-    },
-    maintainAspectRatio: false,
   };
 
   return (
@@ -68,9 +61,43 @@ const DoughnutChartCard: React.FC<DoughnutChartCardProps> = ({
             </span>
           </div>
           <div className={'doughnut-card__chart-container'}>
-            <Doughnut data={chartData} options={options} />
+            <Doughnut 
+              data={chartData} 
+              options={{
+                cutout: '70%',
+                plugins: {
+                  legend: { display: false },
+                  tooltip: {
+                    enabled: true,
+                    position: 'average',
+                    rtl: true,
+                    textDirection: 'rtl',
+                    displayColors: true,
+                    backgroundColor: 'white',
+                    titleColor: '#000000',
+                    bodyColor: '#000000',
+                    borderColor: '#e2e8f0',
+                    borderWidth: 1,
+                    padding: 10,
+                    titleFont: {
+                      family: 'inherit',
+                      size: 14,
+                      weight: 'bold'
+                    },
+                    bodyFont: {
+                      family: 'inherit',
+                      size: 14,
+                      weight: 'bold'
+                    }
+                  }
+                }
+              }} 
+            />
             <div className={'doughnut-card__center-label'}>
-              <span className={'doughnut-card__center-value'}>{centerLabel}</span>
+              <span className={'doughnut-card__center-value'}>
+                {centerLabel}
+                {isCurency && <img src="/Riyal.svg" alt="riyal" className='w-5 h-5 riyal-img' loading='lazy' />}
+              </span>
               {percentage && (
                 <span
                   className={'doughnut-card__percentage'}
@@ -98,4 +125,4 @@ const DoughnutChartCard: React.FC<DoughnutChartCardProps> = ({
   );
 };
 
-export default DoughnutChartCard; 
+export default DoughnutChartCard;
