@@ -1,8 +1,3 @@
-interface SidebarProps {
-  collapsed: boolean;
-  setCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from "react-router-dom";
 import { Layout, Menu, Button, Grid } from "antd";
@@ -13,12 +8,17 @@ import './Sidebar.scss';
 const { Sider } = Layout;
 const { useBreakpoint } = Grid;
 
+interface SidebarProps {
+  collapsed: boolean;
+  setCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 const menuItems = [
   { 
     key: 'home',
     label: 'الرئيسية',
     icon: (
-      <img src={'../../../assets/HomeIcon.svg'} alt="Home" />
+      <img src={'/HomeIcon.svg'} alt="Home" loading='lazy' />
     ),
     path: '/home'
   },
@@ -26,7 +26,7 @@ const menuItems = [
     key: 'summary',
     label: 'ملخص الشهر',
     icon: (
-      <img src={'../../../assets/Calendar.svg'} alt="Summary" />
+      <img src={'/Calendar.svg'} alt="Summary" loading='lazy' />
     ),
     path: '/summary'
   },
@@ -34,7 +34,7 @@ const menuItems = [
     key: 'editor',
     label: 'محرر البيانات',
     icon: (
-      <img src={'../../../assets/Layers.svg'} alt="Editor" />
+      <img src={'/Layers.svg'} alt="Editor" loading='lazy' />
     ),
     path: '/editor'
   },
@@ -42,7 +42,7 @@ const menuItems = [
     key: 'analytics',
     label: 'التحليلات',
     icon: (
-      <img src={'../../../assets/Chart.svg'} alt="Analytics" />
+      <img src={'/Chart.svg'} alt="Analytics" loading='lazy' />
     ),
     path: '/analytics'
   },
@@ -50,7 +50,7 @@ const menuItems = [
     key: 'payments',
     label: 'تحليل الدفع والتقسيط',
     icon: (
-      <img src={'../../../assets/Chart1.svg'} alt="Payments" />
+      <img src={'/Chart1.svg'} alt="Payments" loading='lazy' />
     ),
     path: '/payments'
   },
@@ -58,7 +58,7 @@ const menuItems = [
     key: 'cash-on-delivery',
     label: 'الدفع عند الإستلام',
     icon: (
-      <img src={'../../../assets/Wallet.svg'} alt="cash-on-delivery" />
+      <img src={'/Wallet.svg'} alt="cash-on-delivery" loading='lazy' />
     ),
     path: '/cash-on-delivery'
   },
@@ -66,7 +66,7 @@ const menuItems = [
     key: 'returns',
     label: 'المرتجعات',
     icon: (
-      <img src={'../../../assets/Box.svg'} alt="Returns" />
+      <img src={'/Box.svg'} alt="Returns" loading='lazy' />
     ),
     path: '/returns'
   },
@@ -74,7 +74,7 @@ const menuItems = [
     key: 'reports',
     label: 'التقارير العامة',
     icon: (
-      <img src={'../../../assets/Document.svg'} alt="Reports" />
+      <img src={'/Document.svg'} alt="Reports" loading='lazy' />
     ),
     path: '/reports'
   },
@@ -82,7 +82,7 @@ const menuItems = [
     key: 'marketing',
     label: 'التسويق',
     icon: (
-      <img src={'../../../assets/Megaphone.svg'} alt="Marketing" />
+      <img src={'/Megaphone.svg'} alt="Marketing" loading='lazy' />
     ),
     path: '/marketing'
   },
@@ -90,7 +90,7 @@ const menuItems = [
     key: 'settings',
     label: 'الإعدادات',
     icon: (
-      <img src={'../../../assets/Icon.svg'} alt="Settings" />
+      <img src={'/Icon.svg'} alt="Settings" loading='lazy' />
     ),
     path: '/settings'
   }
@@ -147,8 +147,8 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, setCollapsed }) => {
         >
           {/* Logo and Toggle */}
           <div className="sidebar-header">
-            {collapsed && <img src={'/logo-1.png'} alt="3aedi" />}
-            {!collapsed && <img src={'/logo.png'} alt="3aedi" />}
+            {collapsed && <img src={'/logo-1.png'} alt="3aedi" loading='lazy' />}
+            {!collapsed && <img src={'/logo.png'} alt="3aedi" loading='lazy' />}
             <Button
               type="text"
               icon={collapsed ? <MdKeyboardArrowLeft size={22} /> : <MdKeyboardArrowRight size={22} />}

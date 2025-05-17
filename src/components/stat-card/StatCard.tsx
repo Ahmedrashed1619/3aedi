@@ -21,7 +21,7 @@ const StatCard: React.FC<StatCardProps> = ({ title, value, icon, specialCard = f
       <div className="flex flex-col gap-y-1 justify-start">
         <h6 className="title text-xs md:text-sm xl:text-base font-semibold text-[#64748b] group-hover:text-white transition-all duration-500">{title}</h6>
         <h6 className={`value text-[#1e293b] ${specialCard ? 'special-card !text-green-500' : ''} text-lg md:text-xl lg:text-2xl 2x:text-3xl font-bold group-hover:text-white transition-all duration-500`}>
-          {value} {title !== 'الطلبات' && <img src={'/assets/Riyal.svg'} alt="currency" className={'w-8 h-8 inline-block'} />}
+          {value} {title !== 'الطلبات' && <img src={'/Riyal.svg'} alt="currency" className={'w-8 h-8 inline-block'} loading='lazy' />}
         </h6>
       </div>
     </div>

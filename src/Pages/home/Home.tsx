@@ -10,17 +10,17 @@ import WarningCard from '../../components/warning-card/WarningCard';
 import DailySummary from '../../components/daily-summary/DailySummary';
 
 const marketingItems = [
-  { id: 1, platform: 'جوجل', amount: 154.5, date: '2024 سبتمبر 22', icon: '/assets/Group 249.svg' },
-  { id: 2, platform: 'ميتا', amount: 154.5, date: '2024 سبتمبر 22', icon: '/assets/logos_meta.svg' },
-  { id: 3, platform: 'تيك توك', amount: 154.5, date: '2024 سبتمبر 22', icon: '/assets/Vector.svg' },
-  { id: 4, platform: 'سناب شات', amount: 154.5, date: '2024 سبتمبر 22', icon: '/assets/mingcute_snapchat-line.svg' },
-  { id: 5, platform: '(X) تويتر', amount: 154.5, date: '2024 سبتمبر 22', icon: '/assets/prime_twitter.svg' },
+  { id: 1, platform: 'جوجل', amount: 154.5, date: '2024 سبتمبر 22', icon: '/Group 249.svg' },
+  { id: 2, platform: 'ميتا', amount: 154.5, date: '2024 سبتمبر 22', icon: '/logos_meta.svg' },
+  { id: 3, platform: 'تيك توك', amount: 154.5, date: '2024 سبتمبر 22', icon: '/Vector.svg' },
+  { id: 4, platform: 'سناب شات', amount: 154.5, date: '2024 سبتمبر 22', icon: '/mingcute_snapchat-line.svg' },
+  { id: 5, platform: '(X) تويتر', amount: 154.5, date: '2024 سبتمبر 22', icon: '/prime_twitter.svg' },
 ];
 
 const costItems = [
-  { id: 1, platform: 'التكاليف اليومية', amount: 154.50, icon: '/assets/material-symbols_money-bag-outline-rounded.svg', date: '2024 سبتمبر 22' },
-  { id: 2, platform: 'تكلفة المنتجات', amount: 154.50, icon: '/assets/icon-park-outline_ad-product.svg', date: '2024 سبتمبر 22' },
-  { id: 3, platform: 'قيمة الضريبة', amount: 154.50, icon: '/assets/hugeicons_taxes.svg', date: '2024 سبتمبر 22' },
+  { id: 1, platform: 'التكاليف اليومية', amount: 154.50, icon: '/material-symbols_money-bag-outline-rounded.svg', date: '2024 سبتمبر 22' },
+  { id: 2, platform: 'تكلفة المنتجات', amount: 154.50, icon: '/icon-park-outline_ad-product.svg', date: '2024 سبتمبر 22' },
+  { id: 3, platform: 'قيمة الضريبة', amount: 154.50, icon: '/hugeicons_taxes.svg', date: '2024 سبتمبر 22' },
 ];
 
 const handleButtonClick = () => {

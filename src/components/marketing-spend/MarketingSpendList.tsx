@@ -25,7 +25,7 @@ const MarketingSpendList: React.FC<MarketingSpendListProps> = ({ items, total, t
         </span>
         <div className="flex items-center gap-x-1">
           <span className={`font-bold text-xl`}>{total}</span>
-          <img src="/assets/Riyal.svg" alt="riyal" className='w-8 h-8 riyal-img' />
+          <img src="/Riyal.svg" alt="riyal" className='w-8 h-8 riyal-img' loading='lazy' />
         </div>
       </div>
       <div className="flex items-center gap-x-1 text-red-500 font-semibold">
@@ -39,7 +39,7 @@ const MarketingSpendList: React.FC<MarketingSpendListProps> = ({ items, total, t
           <div className="card-platform flex justify-between items-center gap-x-2 w-full">
             <div className="flex justify-start items-center gap-x-3">
               <div className='w-10 h-10 rounded-full bg-gray-100 flex justify-center items-center'>
-                {typeof item.icon === 'string' ? <img src={item.icon} alt="platform" className='w-6 h-6' /> : item.icon}
+                {typeof item.icon === 'string' ? <img src={item.icon} alt="platform" className='w-6 h-6' loading='lazy' /> : item.icon}
               </div>
               <div className="flex flex-col gap-y-1">
                 <span className='text-[#1B2559] text-lg font-bold text-center'>{item.platform}</span>
@@ -48,7 +48,7 @@ const MarketingSpendList: React.FC<MarketingSpendListProps> = ({ items, total, t
             </div>
             <div className="flex items-center gap-x-2">
               <span className='text-red-500 text-lg font-bold text-center'>{item.amount}</span>
-              <img src="/assets/Riyal.svg" alt="riyal" className='w-6 h-6 riyal-img' />
+              <img src="/Riyal.svg" alt="riyal" className='w-6 h-6 riyal-img' loading='lazy' />
             </div>
           </div>
         </li>

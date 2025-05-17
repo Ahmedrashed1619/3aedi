@@ -41,7 +41,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
         <div className="bg-white rounded-t-3xl p-5 h-full relative">
           <div className="flex justify-between items-start">
             <div className="flex flex-row sm:flex-col items-center sm:items-start gap-2">
-              <img src={'/assets/Icon3.svg'} alt="chart" />
+              <img src={'/Icon3.svg'} alt="chart" loading='lazy' />
               <span className='text-[#1B2559] font-semibold text-base lg:text-lg xl:text-xl'>
                 {title}
               </span>
@@ -53,9 +53,9 @@ const ResultCard: React.FC<ResultCardProps> = ({
           </div>
           <div className="flex justify-end">
             {isProfit ? 
-              <img src="/assets/Ictrendingup.svg" alt="Ictrendingup" className='block w-24 xl:w-28 2xl:w-32' />
+              <img src="/Ictrendingup.svg" alt="Ictrendingup" className='block w-24 xl:w-28 2xl:w-32' loading='lazy' />
               :
-              <img src="/assets/Ictrendingdown.svg" alt="Ictrendingdown" className='block w-24 xl:w-28 2xl:w-32' />
+              <img src="/Ictrendingdown.svg" alt="Ictrendingdown" className='block w-24 xl:w-28 2xl:w-32' loading='lazy' />
             }
           </div>
           <div className={`flex items-center font-bold gap-x-2 absolute bottom-4 right-4`}>
@@ -72,7 +72,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
           </span>
           <div className="mt-3 flex justify-center items-center gap-x-1">
             <span className={`font-bold text-2xl ${totalColor}`}>{total.toFixed(2)}</span>
-            <img src="/assets/Riyal.svg" alt="riyal" className='w-8 h-8 riyal-img' />
+            <img src="/Riyal.svg" alt="riyal" className='w-8 h-8 riyal-img' loading='lazy' />
           </div>
         </div>
       </div>

@@ -89,7 +89,7 @@ const DoughnutChartCard: React.FC<DoughnutChartCardProps> = ({
           {labels.length > 0 && labels.map((label, idx) => (
             <span className="text-[#6B7280] text-sm md:text-base lg:text-lg font-bold flex items-center gap-2 mb-2">
               <span className="inline-block w-[12px] h-[12px] rounded-[4px]" style={{backgroundColor: colors[idx]}}></span>
-              {label}: <span className='text-black'>1062.69</span> <img src="/assets/Riyal.svg" alt="riyal" className='w-4 h-4 riyal-img' />
+              {label}: <span className='text-black'>1062.69</span> <img src="/Riyal.svg" alt="riyal" className='w-4 h-4 riyal-img' loading='lazy' />
             </span>
           ))}
         </div>
