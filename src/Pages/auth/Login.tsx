@@ -26,7 +26,7 @@ const Login = () => {
 
   const onSubmit = (data: LoginFormValues) => {
     console.log(data);
-    // In a real app, you'd dispatch an async thunk to an API
+    // In a real req & res, you'd dispatch an async thunk to an API
     // For now, we'll simulate a successful login
     dispatch(loginSuccess({ token: 'fake-token', user: { email: data.email } }));
     navigate('/');

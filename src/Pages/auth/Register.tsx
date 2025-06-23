@@ -23,7 +23,7 @@ const Register = () => {
 
   const onSubmit = (data: RegisterFormValues) => {
     console.log(data);
-    // In a real app, you'd make an API call to register the user
+    // In a real req & res, you'd make an API call to register the user
     alert('Registration successful! Please log in.');
   };
 
