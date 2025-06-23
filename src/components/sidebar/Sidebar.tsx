@@ -86,14 +86,14 @@ const menuItems = [
     ),
     path: '/marketing'
   },
-  { 
-    key: 'settings',
-    label: 'الإعدادات',
-    icon: (
-      <img src={'/Icon.svg'} alt="Settings" loading='lazy' />
-    ),
-    path: '/settings'
-  }
+  // { 
+  //   key: 'settings',
+  //   label: 'الإعدادات',
+  //   icon: (
+  //     <img src={'/Icon.svg'} alt="Settings" loading='lazy' />
+  //   ),
+  //   path: '/settings'
+  // }
 ];
 
 const Sidebar: React.FC<SidebarProps> = ({ collapsed, setCollapsed }) => {
