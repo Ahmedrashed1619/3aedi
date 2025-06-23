@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import Header from '../components/header/Header';
+import Header from '@components/header/Header';
 import { Outlet } from 'react-router-dom';
-import Sidebar from '../components/sidebar/Sidebar';
-import { SidebarContext } from '../../context/SidebarContext';
+import Sidebar from '@components/sidebar/Sidebar';
 import './Layout.scss';
+import { SidebarContext } from '@/context/SidebarContext';
 
 const Layout: React.FC = () => {
 

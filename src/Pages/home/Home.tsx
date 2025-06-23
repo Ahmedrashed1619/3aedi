@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { FaGoogle, FaFacebook, FaTiktok, FaSnapchatGhost, FaTwitter, FaMoneyBillWave, FaBoxOpen, FaReceipt } from 'react-icons/fa';
-import SummarySection from '../../components/SummarySection';
-import CalendarCard from '../../components/calender-card/CalendarCard';
-import WeeklyChart from '../../components/weekly-chart/WeeklyChart';
-import MarketingSpendList from '../../components/marketing-spend/MarketingSpendList';
-import ResultCard from '../../components/result-card/ResultCard';
-import DoughnutChartCard from '../../components/doughnut-chart/DoughnutChartCard';
-import WarningCard from '../../components/warning-card/WarningCard';
-import DailySummary from '../../components/daily-summary/DailySummary';
+import React from 'react';
+// import { FaGoogle, FaFacebook, FaTiktok, FaSnapchatGhost, FaTwitter, FaMoneyBillWave, FaBoxOpen, FaReceipt } from 'react-icons/fa';
+import SummarySection from '@components/summary-section/SummarySection';
+import CalendarCard from '@components/calender-card/CalendarCard';
+import WeeklyChart from '@components/weekly-chart/WeeklyChart';
+import MarketingSpendList from '@components/marketing-spend/MarketingSpendList';
+import ResultCard from '@components/result-card/ResultCard';
+import DoughnutChartCard from '@components/doughnut-chart/DoughnutChartCard';
+import WarningCard from '@components/warning-card/WarningCard';
+import DailySummary from '@components/daily-summary/DailySummary';
 
 const marketingItems = [
   { id: 1, platform: 'جوجل', amount: 154.5, date: '2024 سبتمبر 22', icon: '/Group 249.svg' },

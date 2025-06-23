@@ -35,6 +35,7 @@ const DoughnutChartCard: React.FC<DoughnutChartCardProps> = ({
   subLabel,
   date,
   isCurency = false,
+  legends,
 }) => {
 
   const chartData = {
@@ -113,10 +114,10 @@ const DoughnutChartCard: React.FC<DoughnutChartCardProps> = ({
       </div>
       <div className="row-span-1">
         <div className="bg-white rounded-b-3xl px-5 py-6 h-full">
-          {labels.length > 0 && labels.map((label, idx) => (
-            <span className="text-[#6B7280] text-sm md:text-base lg:text-lg font-bold flex items-center gap-2 mb-2">
-              <span className="inline-block w-[12px] h-[12px] rounded-[4px]" style={{backgroundColor: colors[idx]}}></span>
-              {label}: <span className='text-black'>1062.69</span> <img src="/Riyal.svg" alt="riyal" className='w-4 h-4 riyal-img' loading='lazy' />
+          {legends && legends.map((legend, idx) => (
+            <span key={`${legend.label}-${idx}`} className="text-[#6B7280] text-sm md:text-base lg:text-lg font-bold flex items-center gap-2 mb-2">
+              <span className="inline-block w-[12px] h-[12px] rounded-[4px]" style={{backgroundColor: legend.color}}></span>
+              {legend.label}: <span className='text-black'>{legend.value}</span>
             </span>
           ))}
         </div>

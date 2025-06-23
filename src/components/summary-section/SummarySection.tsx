@@ -1,5 +1,6 @@
 import React from 'react';
-import StatCard from './stat-card/StatCard';
+import StatCard from '../stat-card/StatCard';
+// import StatCard from './stat-card/StatCard';
 
 const SummarySection: React.FC = () => (
   <section className="mb-6">
