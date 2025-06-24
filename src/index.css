@@ -1,14 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary: #4857FC;
+    --color-primary-dark: #1B2559;
+    --color-primary-light: #6B7280;
+    
+    /* Background Colors */
+    --color-background: #F7F8FA;
+    --color-background-light: #F9FAFB;
+    
+    /* Border Colors */
+    --color-border: #E5E7EB;
+    
+    /* Text Colors */
+    --color-text-primary: #1B2559;
+    --color-text-secondary: #6B7280;
+    --color-text-placeholder: #9CA3AF;
+    --color-text-error: #EF4444;
+    --color-text-success: #4ade80;
+    
+    /* Status Colors */
+    --color-error: #EF4444;
+    --color-success: #4ade80;
+  }
+
   html {
-    font-family: 'arabic', sans-serif;
+    font-family: 'Montserrat-Arabic', 'Montserrat', 'arabic', sans-serif;
     scroll-behavior: smooth;
   }
+  
   body {
     @apply antialiased;
+  }
+}
+
+@layer components {
+  /* Auth Form Components */
+  .auth-input {
+    @apply w-full bg-background-light border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primary text-right text-xs md:text-sm placeholder-placeholder font-normal;
+  }
+  
+  .auth-label {
+    @apply block mb-2 font-bold text-text-primary text-xs md:text-sm;
+  }
+  
+  .auth-button {
+    @apply w-full bg-primary hover:bg-primary-dark text-white font-extrabold text-base md:text-lg py-2 rounded-lg transition;
+  }
+  
+  .auth-button-secondary {
+    @apply w-full flex items-center justify-center gap-2 border border-border rounded-lg py-2 font-bold text-text-primary bg-white hover:bg-gray-50 transition text-sm md:text-base;
+  }
+  
+  .auth-divider {
+    @apply flex items-center gap-2;
+  }
+  
+  .auth-divider-line {
+    @apply flex-1 h-px bg-border;
+  }
+  
+  .auth-divider-text {
+    @apply text-primary-light text-xs md:text-sm;
+  }
+  
+  .auth-link {
+    @apply text-primary font-bold hover:underline;
+  }
+  
+  .auth-error {
+    @apply text-text-error text-xs mt-1;
   }
 }
 

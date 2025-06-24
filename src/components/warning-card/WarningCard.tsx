@@ -7,7 +7,7 @@ interface WarningCardProps {
 
 const WarningCard: React.FC<WarningCardProps> = ({ onButtonClick }) => {
   return (
-    <div className="warning-card__container w-full mx-auto">
+    <div className="warning-card__container w-full mx-auto" dir='ltr'>
       <div className="relative rounded-3xl border-2 border-[#CC990060] bg-amber-50 p-6 flex flex-col-reverse gap-y-6 md:gap-y-0 md:flex-row items-center justify-between">
         <div className={'alert-bar__button-container'}>
             <button

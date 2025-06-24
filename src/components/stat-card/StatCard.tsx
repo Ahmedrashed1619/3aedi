@@ -13,7 +13,6 @@ const StatCard: React.FC<StatCardProps> = ({ title, value, icon, specialCard = f
   return (
     <div
       className={`stat-card flex items-center rounded-3xl p-6 gap-x-3 transition-all duration-500 bg-white hover:bg-indigo-500 group`}
-      dir='rtl'
     >
       <div className="flex justify-center items-center">
         {icon}

@@ -133,7 +133,6 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, setCollapsed }) => {
           visible ? "visible" : ""
         }`}
         onClick={() => isDrawerMode && setVisible(false)}
-        dir='rtl'
       >
         <Sider
           collapsible

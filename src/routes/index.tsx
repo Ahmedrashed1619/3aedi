@@ -5,6 +5,7 @@ import Home from '@pages/home/Home';
 import Layout from '@Layout/Layout';
 import ProtectedRoute from '@routes/ProtectedRoute';
 import DataHooksExample from '@pages/examples/DataHooksExample';
+import Otp from '@/Pages/auth/Otp';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,14 @@ const router = createBrowserRouter([
   {
     path: '/register',
     element: <Register />,
+  },
+  {
+    path: '/forget-password',
+    element: <Register />,
+  },
+  {
+    path: '/token-code',
+    element: <Otp />,
   },
   {
     path: '/',

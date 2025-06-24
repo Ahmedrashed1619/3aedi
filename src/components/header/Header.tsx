@@ -8,10 +8,9 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ collapsed }) => {
   return (
     <header
-      className={`navbar bg-white flex items-center px-6 justify-start py-5 fixed top-0 left-0 right-[12px] ${collapsed? "collapsed" : "not-collapsed"}`}
+      className={`navbar bg-white flex justify-end items-center px-6 py-5 fixed top-0 left-0 right-[12px] ${collapsed? "collapsed" : "not-collapsed"}`}
     >
-      <div className="flex items-center space-x-2 md:space-x-3 rtl:space-x-reverse w-full">
-        
+      <div className="flex justify-end items-center space-x-2 md:space-x-3 rtl:space-x-reverse w-full">
         <div className="flex items-center">
           <div className="flex items-center border border-gray-200 rounded-full pr-2 md:pr-3 lg:pr-4 pl-1 md:pl-2 lg:pl-3 bg-white shadow-sm min-w-[120px] md:min-w-[150px] lg:min-w-[200px]">
             <svg className="w-4 h-4 md:w-5 md:h-5 text-blue-500 mr-1 md:mr-2 lg:mr-3 rtl:mr-0 rtl:ml-1 md:rtl:ml-2 lg:rtl:ml-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" /></svg>

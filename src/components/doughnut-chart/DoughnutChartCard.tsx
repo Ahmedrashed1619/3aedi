@@ -50,7 +50,7 @@ const DoughnutChartCard: React.FC<DoughnutChartCardProps> = ({
   };
 
   return (
-    <div className="grid grid-rows-3 gap-1 shadow-md rounded-3xl" dir='rtl'>
+    <div className="grid grid-rows-3 gap-1 shadow-md rounded-3xl">
       <div className="row-span-2">
         <div className="bg-white rounded-t-3xl p-5 h-full relative">
           <div className="flex flex-col gap-y-2 mb-3">
@@ -72,7 +72,7 @@ const DoughnutChartCard: React.FC<DoughnutChartCardProps> = ({
                     enabled: true,
                     position: 'average',
                     rtl: true,
-                    textDirection: 'rtl',
+                    // textDirection: 'rtl',
                     displayColors: true,
                     backgroundColor: 'white',
                     titleColor: '#000000',

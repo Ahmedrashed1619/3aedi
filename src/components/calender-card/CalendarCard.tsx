@@ -50,7 +50,7 @@ const CalendarCard = () => {
   const daysArray = createDaysArray();
 
   return (
-    <div className="bg-white rounded-3xl p-5 shadow-md font-sans h-full" dir="rtl">
+    <div className="bg-white rounded-3xl p-5 shadow-md font-sans h-full">
       <div className="flex justify-between items-center mb-4">
         <button 
           onClick={handlePrevMonth} 

@@ -18,12 +18,11 @@ const DailySummary: React.FC<DailySummaryProps> = ({
   };
 
   return (
-    <>
+    <div dir='ltr'>
       <div className="!my-6 md:!my-8 lg:!my-10 xl:!my-12 w-full flex flex-col-reverse gap-y-3 sm:flex-row sm:gap-y-0 justify-between items-end sm:items-center">
         <button 
           className="flex items-center justify-between gap-2 px-3 py-1 border rounded-xl w-[180px] text-lg font-bold border-gray-500 hover:border-transparent text-gray-500 hover:text-white hover:bg-[#4857FC] transition-all duration-300"
           onClick={handleToggleComments}
-          dir='rtl'
         >
           <div className="cursor-pointer p-1 flex items-center gap-2">
             <FiPlus size={20} />
@@ -49,7 +48,7 @@ const DailySummary: React.FC<DailySummaryProps> = ({
           <p className="text-gray-500">منطقة التعليقات (يمكن إضافة المحتوى هنا)</p>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

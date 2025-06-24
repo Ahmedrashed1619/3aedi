@@ -36,7 +36,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
 }) => {
   const totalColor = isProfit ? 'text-green-500' : 'text-red-500';
   return (
-    <div className="grid grid-rows-3 gap-1 shadow-md rounded-3xl" dir='rtl'>
+    <div className="grid grid-rows-3 gap-1 shadow-md rounded-3xl">
       <div className="row-span-2">
         <div className="bg-white rounded-t-3xl p-5 h-full relative">
           <div className="flex justify-between items-start">
