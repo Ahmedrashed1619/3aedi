@@ -3,20 +3,22 @@ import { Form, Input, Button } from "antd";
 import { Link } from "react-router-dom";
 import "./Auth.scss";
 import RegisterHero from "./RegisterHero";
+import { useToast } from '@/hooks/useToast';
 
 const ForgotPassword = () => {
   const [step, setStep] = useState(1);
   const [form] = Form.useForm();
+  const toast = useToast();
 
   const onFinishFirstStep = (values: any) => {
     console.log("Email submitted:", values);
-    // Here you would typically handle the API call to send a reset link
+    toast.success('تم إرسال رابط تعيين كلمة المرور بنجاح!');
     setStep(2);
   };
 
   const onFinishSecondStep = (values: any) => {
     console.log("New password submitted:", values);
-    // Here you would handle the API call to reset the password
+    toast.success('تم تعيين كلمة المرور الجديدة بنجاح!');
   };
 
   return (

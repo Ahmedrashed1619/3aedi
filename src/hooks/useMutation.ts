@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { useSWRConfig } from 'swr';
 import service from '@/services/fetchInterceptor';
 import { handleApiError } from '@/utils/handleApiError';
+import { useToast } from './useToast';
 
 interface MutationOptions {
   successMessage?: string;
   errorMessage?: string;
-  revalidateKey?: string | (string | any[])[];
+  revalidateKey?: string | (string | any[]);
 }
 
 type MutationResult<T> = {
@@ -22,6 +23,7 @@ type MutationResult<T> = {
  */
 export const useMutation = () => {
   const { mutate: revalidate } = useSWRConfig();
+  const toast = useToast();
   const [result, setResult] = useState<MutationResult<any>>({
     data: null,
     error: null,
@@ -42,7 +44,7 @@ export const useMutation = () => {
       setResult({ data: response.data, error: null, isMutating: false });
 
       if (successMessage) {
-        alert(successMessage); // Can be replaced with a toast notification
+        toast.success(successMessage);
       }
 
       if (revalidateKey) {
@@ -57,7 +59,8 @@ export const useMutation = () => {
     } catch (error: any) {
       setResult({ data: null, error, isMutating: false });
       if (errorMessage) {
-        alert(errorMessage);
+        toast.error(errorMessage);
+        return
       } else {
         handleApiError(error);
       }

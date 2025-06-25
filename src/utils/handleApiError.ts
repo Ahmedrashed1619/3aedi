@@ -1,3 +1,5 @@
+import { toast } from 'react-hot-toast';
+
 export function handleApiError(error: any) {
 
   if (error?.response) {
@@ -5,15 +7,15 @@ export function handleApiError(error: any) {
     const data = error.response.data;
 
     if (data?.message) {
-      alert(data.message);
+      toast.error(data.message);
     } else if (typeof data === 'string') {
-      alert(data);
+      toast.error(data);
     } else {
-      alert('حدث خطأ غير متوقع من السيرفر.');
+      toast.error('حدث خطأ غير متوقع من السيرفر.');
     }
   } else if (error?.request) {
-    alert('تعذر الاتصال بالسيرفر. تحقق من اتصالك بالإنترنت.');
+    toast.error('تعذر الاتصال بالسيرفر. تحقق من اتصالك بالإنترنت.');
   } else {
-    alert('حدث خطأ أثناء تجهيز الطلب.');
+    toast.error('حدث خطأ أثناء تجهيز الطلب.');
   }
 } 

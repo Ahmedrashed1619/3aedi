@@ -1,39 +1,70 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FiEye, FiEyeOff } from 'react-icons/fi';
+import { Link, useNavigate } from 'react-router-dom';
 import RegisterHero from './RegisterHero';
-import { Form, Input, Button, Select, Checkbox } from 'antd';
+import { Form, Input, Button, Select } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, DownOutlined } from '@ant-design/icons';
 import PhoneInput from 'react-phone-input-2';
 import './Auth.scss';
+import { useToast } from '@/hooks/useToast';
+import { useMutation } from '@/hooks/useMutation';
+import END_POINTS from '@/services/constants';
+// import { BASE_URL } from '@/utils/fetcher';
+import { register } from '@/services/authService';
 
 const businessTypes = [
-  { value: 'electronics', label: 'الإلكترونيات والتقنية' },
-  { value: 'fashion', label: 'الأزياء والجمال' },
-  { value: 'home', label: 'المنزل والديكور' },
-  { value: 'entertainment', label: 'الترفيه والهوايات' },
-  { value: 'pets', label: 'الحيوانات الأليفة' },
-  { value: 'marketing', label: 'وكالة تسويق' },
-  { value: 'digital', label: 'منتجات رقمية' },
+  { value: 'other', label: 'الإلكترونيات والتقنية' },
+  { value: 'other', label: 'الأزياء والجمال' },
+  { value: 'other', label: 'المنزل والديكور' },
+  { value: 'other', label: 'الترفيه والهوايات' },
+  { value: 'other', label: 'الحيوانات الأليفة' },
+  { value: 'other', label: 'وكالة تسويق' },
+  { value: 'other', label: 'منتجات رقمية' },
   { value: 'other', label: 'أخرى' },
 ];
 
 const Register = () => {
   const [step, setStep] = useState(1);
   const [form] = Form.useForm();
+  const [step1Values, setStep1Values] = useState({});
+  const toast = useToast();
+  const navigate = useNavigate();
+  const { post } = useMutation();
 
   const onNext = async () => {
     try {
-      await form.validateFields(['fullName', 'storeName', 'storeUrl', 'businessType']);
+      const values = await form.validateFields(['fullName', 'store_name', 'store_url', 'store_category']);
+      setStep1Values(values);
       setStep(2);
     } catch {}
   };
 
   const onBack = () => setStep(1);
 
-  const onFinish = (values: any) => {
-    console.log('Register data:', values);
-    alert('تم التسجيل بنجاح!');
+  const onFinish = async (values: any) => {
+    const allValues = { ...step1Values, ...values };
+    let first_name = '';
+    let last_name = '';
+    if (allValues.fullName) {
+      const nameParts = allValues.fullName.trim().split(' ');
+      first_name = nameParts[0] || '';
+      last_name = nameParts.slice(1).join(' ') || '';
+    }
+    const requestBody = {
+      first_name,
+      last_name,
+      email: allValues.email,
+      phone: allValues.phone,
+      password: allValues.password,
+      password2: allValues.password2,
+      store_name: allValues.store_name,
+      store_url: allValues.store_url,
+      store_category: allValues.store_category,
+    };
+
+    const res = await register(requestBody);
+    console.log(res);
+    // يمكنك التوجيه بعد النجاح إذا أردت:
+    // navigate('/login');
   };
 
   return (
@@ -58,36 +89,39 @@ const Register = () => {
                   name="fullName"
                   label={<span className="auth-label">الاسم الكريم</span>}
                   rules={[{ required: true, message: 'الاسم الكامل مطلوب (3 أحرف على الأقل)', min: 3 }]}
+                  className='!mb-0'
                 >
                   <Input className='py-2' placeholder="أدخل اسمك" />
                 </Form.Item>
                 <Form.Item
-                  name="storeName"
+                  name="store_name"
                   label={<span className="auth-label">أدخل اسم متجرك/وكالة التسويق</span>}
                   rules={[{ required: true, message: 'اسم المتجر/الوكالة مطلوب', min: 2 }]}
+                  className='!mb-0'
                 >
                   <Input className='py-2' placeholder="أدخل اسم متجرك/وكالتك" />
                 </Form.Item>
                 <Form.Item
-                  name="storeUrl"
+                  name="store_url"
                   label={<span className="auth-label">رابط متجرك/وكالة التسويق</span>}
                   rules={[{ required: true, type: 'url', message: 'يرجى إدخال رابط صحيح' }]}
+                  className='!mb-0'
                 >
                   <Input className='py-2' placeholder="https://store-name.com" />
                 </Form.Item>
                 <Form.Item
-                  name="businessType"
+                  name="store_category"
                   label={<span className="auth-label">نشاطك التجاري</span>}
                   rules={[{ required: true, message: 'نوع النشاط التجاري مطلوب' }]}
+                  className='!mb-0'
                 >
                   <Select
                     placeholder="اختر نوع النشاط"
                     suffixIcon={<DownOutlined style={{ color: '#1B2559', fontSize: 12, right: 0 }} />}
-                    dropdownStyle={{ textAlign: 'right' }}
-                    
+                    styles={{ popup: { root: { textAlign: 'right' } } }}
                   >
-                    {businessTypes.map(opt => (
-                      <Select.Option key={opt.value} value={opt.value} className="text-xs lg:text-sm 2xl:text-base">
+                    {businessTypes.map((opt, i) => (
+                      <Select.Option key={i} value={opt.value} className="text-xs lg:text-sm 2xl:text-base">
                         {opt.label}
                       </Select.Option>
                     ))}
@@ -131,6 +165,7 @@ const Register = () => {
                   name="password"
                   label={<span className="auth-label !mt-0">كلمة المرور</span>}
                   rules={[{ required: true, min: 6, message: 'كلمة المرور يجب أن تكون 6 أحرف على الأقل' }]}
+                  className='!mb-0'
                 >
                   <Input.Password
                     className='py-2'
@@ -138,12 +173,33 @@ const Register = () => {
                     iconRender={visible => visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />}
                   />
                 </Form.Item>
-
-                <div className="text-[8px] sm:text-[10px] md:text-xs">
+                <Form.Item
+                  name="password2"
+                  label={<span className="auth-label !mt-0">تأكيد كلمة المرور</span>}
+                  dependencies={["password"]}
+                  rules={[
+                    { required: true, message: 'يرجى تأكيد كلمة المرور!' },
+                    ({ getFieldValue }) => ({
+                      validator(_, value) {
+                        if (!value || getFieldValue('password') === value) {
+                          return Promise.resolve();
+                        }
+                        return Promise.reject(new Error('كلمتا المرور غير متطابقتين!'));
+                      },
+                    }),
+                  ]}
+                  className='!mb-0'
+                >
+                  <Input.Password
+                    className='py-2'
+                    placeholder="أعد إدخال كلمة المرور"
+                    iconRender={visible => visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />}
+                  />
+                </Form.Item>
+                <div className="text-[10px] md:text-xs">
                   من خلال التسجيل فإنك توافق على {" "}
                   <Link to="#" className="text-primary hover:underline">الشروط والأحكام وسياسة الخصوصية</Link>
                 </div>
-
                 <Button type="primary" htmlType="submit" className="mt-2 w-full font-medium py-5">
                   إنشاء حساب جديد
                 </Button>
@@ -152,7 +208,7 @@ const Register = () => {
                   <span className="auth-divider-text">أو</span>
                   <span className="auth-divider-line"></span>
                 </div>
-                <Button type="default" className="auth-button-secondary mb-5 w-full flex items-center justify-center gap-2">
+                <Button type="default" className="auth-button-secondary ">
                   <img src={'google.svg'} alt="Google" className="w-5 h-5" />
                   تسجيل الدخول بواسطة جوجل
                 </Button>
