@@ -7,6 +7,7 @@ import { store } from '@store/store';
 
 import '@/chartjs-setup';
 import '@/index.css';
+import 'react-phone-input-2/lib/style.css';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error('Root element not found');

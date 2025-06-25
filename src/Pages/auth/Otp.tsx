@@ -63,7 +63,10 @@ const Otp = () => {
         </div>
       </div>
       <div className="md:basis-1/2 lg:basis-[45%] xl:basis-2/5 h-full">
-        <LoginHero />
+        <LoginHero
+          title='رؤى تنمي أعمالك!'
+          description='اتخذ قرارات ذكية لمتجرك الإلكتروني عبر تقارير تحليلية شاملة تمنحك رؤية أوضح وأداءً أقوى.'
+        />
       </div>
     </div>
   );
