@@ -1,31 +1,32 @@
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
-import Login from '@pages/auth/Login';
-import Register from '@pages/auth/Register';
-import Home from '@pages/home/Home';
-import Layout from '@Layout/Layout';
-import ProtectedRoute from '@routes/ProtectedRoute';
-import DataHooksExample from '@pages/examples/DataHooksExample';
-import Otp from '@/Pages/auth/Otp';
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
+import Login from "@pages/auth/Login";
+import Register from "@pages/auth/Register";
+import Home from "@pages/home/Home";
+import Layout from "@Layout/Layout";
+import ProtectedRoute from "@routes/ProtectedRoute";
+import DataHooksExample from "@pages/examples/DataHooksExample";
+import Otp from "@pages/auth/Otp";
+import ForgotPassword from "@pages/auth/ForgotPassword";
 
 const router = createBrowserRouter([
   {
-    path: '/login',
+    path: "/login",
     element: <Login />,
   },
   {
-    path: '/register',
+    path: "/register",
     element: <Register />,
   },
   {
-    path: '/forget-password',
-    element: <Register />,
-  },
-  {
-    path: '/token-code',
+    path: "/token-code",
     element: <Otp />,
   },
   {
-    path: '/',
+    path: "/forgot-password",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/",
     element: (
       <ProtectedRoute>
         <Layout />
@@ -33,51 +34,51 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Navigate to="home" />,
       },
       {
-        path: 'home',
+        path: "home",
         element: <Home />,
       },
       {
-        path: 'summary',
+        path: "summary",
         element: <Home />,
       },
       {
-        path: 'editor',
+        path: "editor",
         element: <Home />,
       },
       {
-        path: 'analytics',
+        path: "analytics",
         element: <Home />,
       },
       {
-        path: 'payments',
+        path: "payments",
         element: <Home />,
       },
       {
-        path: 'cash-on-delivery',
+        path: "cash-on-delivery",
         element: <Home />,
       },
       {
-        path: 'returns',
+        path: "returns",
         element: <Home />,
       },
       {
-        path: 'reports',
+        path: "reports",
         element: <Home />,
       },
       {
-        path: 'marketing',
+        path: "marketing",
         element: <Home />,
       },
       {
-        path: 'example',
+        path: "example",
         element: <DataHooksExample />,
       },
       {
-        path: '*',
+        path: "*",
         element: <Navigate to="home" />,
       },
       // Add other protected routes here

@@ -76,7 +76,7 @@ const Login = () => {
               />
             </Form.Item>
             <div className="my-4">
-              <Link to={'/forget-password'} className="auth-link text-xs md:text-sm">نسيت كلمة المرور؟</Link>
+              <Link to={'/forgot-password'} className="auth-link text-xs md:text-sm">نسيت كلمة المرور؟</Link>
             </div>
             <Button type="primary" htmlType="submit" className="mt-2 w-full font-medium py-5">
               تسجيل الدخول
