@@ -8,6 +8,7 @@ import DataHooksExample from "@pages/examples/DataHooksExample";
 import Otp from "@pages/auth/Otp";
 import ForgotPassword from "@pages/auth/ForgotPassword";
 import ResePassword from "@/Pages/auth/ResetPassword";
+import StoreOnboarding from "@/Pages/auth/StoreOnboarding";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/reset-password/:id",
     element: <ResePassword />,
+  },
+  {
+    path: "/store-onboarding",
+    element: <StoreOnboarding />,
   },
   {
     path: "/",

@@ -1,24 +1,19 @@
 import { useDispatch } from 'react-redux';
-import { loginSuccess } from '@store/slices/authSlice';
 import { Link, useNavigate } from 'react-router-dom';
-import LoginHero from './LoginHero';
 import { Form, Input, Button } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import PhoneInput from 'react-phone-input-2';
 import './Auth.scss';
 import { useToast } from '@/hooks/useToast';
 import { useState } from 'react';
-// import END_POINTS from '@/services/constants';
-import { useMutation } from '@/hooks/useMutation';
 import { login } from '@/services/authService';
-// import axios from 'axios';
-// import { BASE_URL } from '@/config';
+import { loginSuccess } from '@/store/slices/authSlice';
+import LoginHero from './LoginHero';
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const toast = useToast();
-  const { post } = useMutation();
 
   const [form] = Form.useForm();
   const [loginWithEmail, setLoginWithEmail] = useState(true);
@@ -114,7 +109,7 @@ const Login = () => {
             <Form.Item
               name="password"
               label={<span className="auth-label">كلمة المرور </span>}
-              rules={[{ required: true, min: 6, message: 'كلمة المرور يجب أن تكون 6 أحرف على الأقل' }]}
+              rules={[{ required: true, min: 8, message: 'كلمة المرور يجب أن تكون 8 أحرف على الأقل' }]}
               className='!mb-0'
             >
               <Input.Password

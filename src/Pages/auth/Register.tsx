@@ -6,8 +6,6 @@ import { EyeInvisibleOutlined, EyeTwoTone, DownOutlined } from '@ant-design/icon
 import PhoneInput from 'react-phone-input-2';
 import './Auth.scss';
 import { useToast } from '@/hooks/useToast';
-import { useMutation } from '@/hooks/useMutation';
-import END_POINTS from '@/services/constants';
 import { register } from '@/services/authService';
 
 const businessTypes = [
@@ -27,7 +25,6 @@ const Register = () => {
   const [step1Values, setStep1Values] = useState({});
   const toast = useToast();
   const navigate = useNavigate();
-  const { post } = useMutation();
 
   const onNext = async () => {
     try {
@@ -51,7 +48,7 @@ const Register = () => {
     }
     const requestBody = {
       first_name,
-      last_name,
+      last_name: last_name || first_name,
       email: allValues.email,
       phone: `+${allValues.phone}`,
       password: allValues.password,
@@ -181,7 +178,7 @@ const Register = () => {
                 <Form.Item
                   name="password"
                   label={<span className="auth-label !mt-0">كلمة المرور</span>}
-                  rules={[{ required: true, min: 6, message: 'كلمة المرور يجب أن تكون 6 أحرف على الأقل' }]}
+                  rules={[{ required: true, min: 8, message: 'كلمة المرور يجب أن تكون 8 أحرف على الأقل' }]}
                   className='!mb-0'
                 >
                   <Input.Password

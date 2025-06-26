@@ -1,9 +1,9 @@
 import React from 'react';
-import topSvg from '../../assets/top-shape.svg';
-import centerSvg from '../../assets/center-shape.svg';
-import bottomSvg from '../../assets/bottom-shape.svg';
-import firstSvg from '../../assets/first-shape.svg';
-import secondSvg from '../../assets/second-shape.svg';
+import topSvg from '@/assets/top-shape.svg';
+import centerSvg from '@/assets/center-shape.svg';
+import bottomSvg from '@/assets/bottom-shape.svg';
+import firstSvg from '@/assets/first-shape.svg';
+import secondSvg from '@/assets/second-shape.svg';
 
 interface LoginHeroProps {
   title: string;

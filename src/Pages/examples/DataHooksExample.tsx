@@ -1,4 +1,3 @@
-import React from 'react';
 import { useFetch } from '@/hooks/useFetch';
 import { useMutation } from '@/hooks/useMutation';
 import END_POINTS from '@/services/constants';

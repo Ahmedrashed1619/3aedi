@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 export function handleApiError(error: any) {
 
   if (error?.response) {
-    const status = error.response.status;
+    // const status = error.response.status;
     const data = error.response.data;
 
     if (data?.message) {

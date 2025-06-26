@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ensure all antd components use the same font as the app */
+body,
+.font-arabic,
+[class^="ant-"],
+[class*=" ant-"] {
+  font-family: 'Montserrat-Arabic', 'Montserrat', 'arabic', sans-serif !important;
+}
+
 @layer base {
   :root {
     /* Primary Colors */
@@ -67,7 +75,7 @@
   }
   
   .auth-divider-text {
-    @apply text-primary-light text-xs md:text-sm;
+    @apply text-xs md:text-sm text-primary-light font-semibold bg-white px-2;
   }
   
   .auth-link {

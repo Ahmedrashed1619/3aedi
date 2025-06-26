@@ -1,4 +1,3 @@
-import React from 'react';
 // import { FaGoogle, FaFacebook, FaTiktok, FaSnapchatGhost, FaTwitter, FaMoneyBillWave, FaBoxOpen, FaReceipt } from 'react-icons/fa';
 import SummarySection from '@components/summary-section/SummarySection';
 import CalendarCard from '@components/calender-card/CalendarCard';

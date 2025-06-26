@@ -178,3 +178,37 @@ You can use CSS variables directly:
 ---
 
 All authentication pages use Ant Design Form, professional toast notifications (react-hot-toast), and advanced validation for a modern UX.
+
+## Onboarding Flow Implementation
+
+This project features a professional, multi-step onboarding flow for new users, designed with a modern RTL (Arabic) UI and attention to detail. The onboarding process is structured as follows:
+
+### 1. Multi-Step Form (Step 1 & Step 2)
+- **Step 1:** Collects basic user and store information (name, store name, store URL, business category) with full validation rules matching the registration page.
+- **Step 2:** Collects account credentials (email, phone, password, password confirmation) with the same validation logic as registration.
+- **Unified Submission:** Data from both steps is combined and submitted in a single API request. On success, the user is advanced to the next step.
+
+### 2. Marketing Platforms Selection (Step 3)
+- **UI:** A card-based interface allows users to select which marketing platforms (e.g., TikTok, Snapchat, Meta, Twitter, Google) to connect.
+- **Mock Data:** Platform list and toggle states are managed locally for now, ready for future API integration.
+- **Design:** Each platform is displayed with its icon, name, and a switch for activation, matching the provided design.
+
+### 3. Import Products (Step 4)
+- **UI:** A central card displays a progress circle, product import count, and a confirmation button.
+- **Success & Error States:**
+  - On success, a blue progress circle and success message are shown.
+  - On failure, a red progress circle and error message with a retry button are displayed.
+- **Mock Data:** Product import count and status are currently mocked, with UI ready for real API responses.
+- **Feedback:** Uses `react-hot-toast` for user notifications.
+
+### 4. Responsive & RTL Design
+- All steps are fully responsive and support right-to-left (RTL) layouts for Arabic users.
+- UI components are styled for consistency and clarity, using Tailwind CSS and Ant Design where appropriate.
+
+---
+
+**Note:**
+- The onboarding flow is ready for API integration. All UI and validation logic is in place, and mock data is used where backend endpoints are not yet available.
+- Error and success states are visually distinct and user-friendly.
+
+For further details or to extend the onboarding logic, see the relevant components in `src/Pages/auth/onboarding/` and the main flow in `StoreOnboarding.tsx`.
