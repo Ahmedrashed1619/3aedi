@@ -21,7 +21,7 @@ const steps = [
 ];
 
 const StoreOnboarding: React.FC = () => {
-  const [current, setCurrent] = useState(3);
+  const [current, setCurrent] = useState(0);
   const [formData, setFormData] = useState<any>({});
   const toast = useToast();
   const navigate = useNavigate();
