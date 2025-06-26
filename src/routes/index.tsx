@@ -7,6 +7,7 @@ import ProtectedRoute from "@routes/ProtectedRoute";
 import DataHooksExample from "@pages/examples/DataHooksExample";
 import Otp from "@pages/auth/Otp";
 import ForgotPassword from "@pages/auth/ForgotPassword";
+import ResePassword from "@/Pages/auth/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/forgot-password",
     element: <ForgotPassword />,
+  },
+  {
+    path: "/reset-password/:id",
+    element: <ResePassword />,
   },
   {
     path: "/",

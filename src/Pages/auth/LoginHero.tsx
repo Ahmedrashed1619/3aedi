@@ -8,9 +8,10 @@ import secondSvg from '../../assets/second-shape.svg';
 interface LoginHeroProps {
   title: string;
   description: string;
+  icon?: string;
 }
 
-const LoginHero: React.FC<LoginHeroProps> = ({ title, description }) => {
+const LoginHero: React.FC<LoginHeroProps> = ({ title, description, icon }) => {
   return (
     <div className="flex flex-col justify-center bg-gradient-to-tr from-[#4857FC] to-[#4F8CFF] text-white p-10 w-full h-full min-h-screen relative overflow-hidden">
       {/* Decorations */}
@@ -27,7 +28,7 @@ const LoginHero: React.FC<LoginHeroProps> = ({ title, description }) => {
       <div className="z-10 text-center mt-8">
         <h2 className="text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-bold mb-2 flex items-center justify-center gap-2">
           <span>{title}</span>
-          <span className="text-yellow-400 text-2xl">👋</span>
+          <span className="text-yellow-400 text-2xl">{icon || "👋"}</span>
         </h2>
         <p className="text-xs lg:text-sm font-medium text-white/90 max-w-xs mx-auto">
           {description}

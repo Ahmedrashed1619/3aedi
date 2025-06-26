@@ -8,12 +8,11 @@ import PhoneInput from 'react-phone-input-2';
 import './Auth.scss';
 import { useToast } from '@/hooks/useToast';
 import { useState } from 'react';
-// import { BASE_URL } from '@/utils/fetcher';
-import END_POINTS from '@/services/constants';
+// import END_POINTS from '@/services/constants';
 import { useMutation } from '@/hooks/useMutation';
 import { login } from '@/services/authService';
-import axios from 'axios';
-import { BASE_URL } from '@/config';
+// import axios from 'axios';
+// import { BASE_URL } from '@/config';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -24,42 +23,20 @@ const Login = () => {
   const [form] = Form.useForm();
   const [loginWithEmail, setLoginWithEmail] = useState(true);
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   try {
-  //     const res = await fetch(
-  //       'https://api.3aedi.com/api/users/auth/register/',
-  //       {
-  //         method: 'POST',
-  //         headers: { 'Content-Type': 'application/json' },
-  //         body: JSON.stringify(form),
-  //       }
-  //     );
-  //     if (!res.ok) throw new Error(await res.text());
-  //     console.log(res);
-      
-  //     // setStatus('✅ Registered successfully!');
-  //   } catch (err) {
-  //     // setStatus(`❌ ${err.message}`);
-  //   }
-  // };
-
   const onFinish = async (values: any) => {
-    // const formData = new FormData();
-    
-    // if (loginWithEmail) {
-    //   formData.append('email', values.email);
-    // } else {
-    //   formData.append('phone', values.phone);
-    // }
-    // formData.append('password', values.password);
-
-    await login(values);
-    // const res = await axios.post(`${BASE_URL}${END_POINTS.LOGIN}`, formData, {
-    //   headers: {} // بدون Content-Type مع FormData
-    // });
-
-    // console.log(res);
+    try {
+      const data = await login(values);
+      
+      if (data?.status === "success") {
+        dispatch(loginSuccess({ token: data?.data?.access, user: data?.data }));
+        toast.success(data?.message || 'تم تسجيل الدخول بنجاح!');
+        navigate('/');
+      } else {
+        toast.error(data?.message || 'فشل تسجيل الدخول');
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

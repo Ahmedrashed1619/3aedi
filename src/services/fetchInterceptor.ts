@@ -29,25 +29,26 @@ service.interceptors.response.use(
   (error) => {
     const status = error?.response?.status;
     if (status === 400) {
-      handleApiError({ response: { data: { message: error?.response?.message ?? 'الطلب غير صحيح. تحقق من البيانات المدخلة.' } } });
+      handleApiError({ response: { data: { message: error?.response?.data?.message ?? 'الطلب غير صحيح. تحقق من البيانات المدخلة.' } } });
       return Promise.reject(error);
     }
     if (status === 401) {
       // Unauthorized: Logout and redirect
-      store.dispatch(logout());
-      window.location.href = '/login';
+      // store.dispatch(logout());
+      // window.location.href = '/login';
+      handleApiError({ response: { data: { message: error?.response?.data?.message ?? 'ليس لديك صلاحية للوصول إلى هذا المورد.' } } });
       return Promise.reject(error);
     }
     if (status === 403) {
-      handleApiError({ response: { data: { message: error?.response?.message ?? 'ليس لديك صلاحية للوصول إلى هذا المورد.' } } });
+      handleApiError({ response: { data: { message: error?.response?.data?.message ?? 'ليس لديك صلاحية للوصول إلى هذا المورد.' } } });
       return Promise.reject(error);
     }
     if (status === 422) {
-      handleApiError({ response: { data: { message: error?.response?.message ?? 'هناك خطأ في البيانات المدخلة. يرجى المراجعة.' } } });
+      handleApiError({ response: { data: { message: error?.response?.data?.message ?? 'هناك خطأ في البيانات المدخلة. يرجى المراجعة.' } } });
       return Promise.reject(error);
     }
     if (status >= 500) {
-      handleApiError({ response: { data: { message: error?.response?.message ?? 'حدث خطأ في السيرفر. حاول لاحقًا.' } } });
+      handleApiError({ response: { data: { message: error?.response?.data?.message ?? 'حدث خطأ في السيرفر. حاول لاحقًا.' } } });
       return Promise.reject(error);
     }
     handleApiError(error);

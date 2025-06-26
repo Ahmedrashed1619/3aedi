@@ -8,17 +8,16 @@ import './Auth.scss';
 import { useToast } from '@/hooks/useToast';
 import { useMutation } from '@/hooks/useMutation';
 import END_POINTS from '@/services/constants';
-// import { BASE_URL } from '@/utils/fetcher';
 import { register } from '@/services/authService';
 
 const businessTypes = [
-  { value: 'other', label: 'الإلكترونيات والتقنية' },
-  { value: 'other', label: 'الأزياء والجمال' },
-  { value: 'other', label: 'المنزل والديكور' },
-  { value: 'other', label: 'الترفيه والهوايات' },
-  { value: 'other', label: 'الحيوانات الأليفة' },
-  { value: 'other', label: 'وكالة تسويق' },
-  { value: 'other', label: 'منتجات رقمية' },
+  { value: 'electronics_technology', label: 'الإلكترونيات والتقنية' },
+  { value: 'fashion_beauty', label: 'الأزياء والجمال' },
+  { value: 'home_decor', label: 'المنزل والديكور' },
+  { value: 'entertainment_hobbies', label: 'الترفيه والهوايات' },
+  { value: 'pets', label: 'الحيوانات الأليفة' },
+  { value: 'marketing_agency', label: 'وكالة تسويق' },
+  { value: 'digital_products', label: 'منتجات رقمية' },
   { value: 'other', label: 'أخرى' },
 ];
 
@@ -41,6 +40,7 @@ const Register = () => {
   const onBack = () => setStep(1);
 
   const onFinish = async (values: any) => {
+
     const allValues = { ...step1Values, ...values };
     let first_name = '';
     let last_name = '';
@@ -53,7 +53,7 @@ const Register = () => {
       first_name,
       last_name,
       email: allValues.email,
-      phone: allValues.phone,
+      phone: `+${allValues.phone}`,
       password: allValues.password,
       password2: allValues.password2,
       store_name: allValues.store_name,
@@ -61,10 +61,18 @@ const Register = () => {
       store_category: allValues.store_category,
     };
 
-    const res = await register(requestBody);
-    console.log(res);
-    // يمكنك التوجيه بعد النجاح إذا أردت:
-    // navigate('/login');
+    try {
+      const data = await register(requestBody);
+      
+      if (data?.status === "success") {
+        toast.success(data?.message || 'تم التسجيـل بنجاح!');
+        navigate('/login');
+      } else {
+        toast.error(data?.message || 'فشل التسجيـل');
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -88,26 +96,35 @@ const Register = () => {
                 <Form.Item
                   name="fullName"
                   label={<span className="auth-label">الاسم الكريم</span>}
-                  rules={[{ required: true, message: 'الاسم الكامل مطلوب (3 أحرف على الأقل)', min: 3 }]}
+                  rules={[
+                    { required: true, message: 'الاسم الكامل مطلوب (3 أحرف على الأقل)', min: 3 },
+                    { max: 120, message: 'الاسم يجب أن يكون أقل من 120 حرف' }
+                  ]}
                   className='!mb-0'
                 >
-                  <Input className='py-2' placeholder="أدخل اسمك" />
+                  <Input className='py-2' placeholder="أدخل اسمك" maxLength={120} />
                 </Form.Item>
                 <Form.Item
                   name="store_name"
                   label={<span className="auth-label">أدخل اسم متجرك/وكالة التسويق</span>}
-                  rules={[{ required: true, message: 'اسم المتجر/الوكالة مطلوب', min: 2 }]}
+                  rules={[
+                    { required: true, message: 'اسم المتجر/الوكالة مطلوب', min: 2 },
+                    { max: 120, message: 'اسم المتجر يجب أن يكون أقل من 120 حرف' }
+                  ]}
                   className='!mb-0'
                 >
-                  <Input className='py-2' placeholder="أدخل اسم متجرك/وكالتك" />
+                  <Input className='py-2' placeholder="أدخل اسم متجرك/وكالتك" maxLength={120} />
                 </Form.Item>
                 <Form.Item
                   name="store_url"
                   label={<span className="auth-label">رابط متجرك/وكالة التسويق</span>}
-                  rules={[{ required: true, type: 'url', message: 'يرجى إدخال رابط صحيح' }]}
+                  rules={[
+                    { required: true, type: 'url', message: 'يرجى إدخال رابط صحيح' },
+                    { max: 200, message: 'الرابط يجب أن يكون أقل من 200 حرف' }
+                  ]}
                   className='!mb-0'
                 >
-                  <Input className='py-2' placeholder="https://store-name.com" />
+                  <Input className='py-2' placeholder="https://store-name.com" maxLength={200} />
                 </Form.Item>
                 <Form.Item
                   name="store_category"
