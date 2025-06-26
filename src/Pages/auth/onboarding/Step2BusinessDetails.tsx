@@ -74,7 +74,7 @@ const Step2BusinessDetails = ({ onNext, onBack, initialValues, isLoading }: { on
                 />
             </Form.Item>
             <div className="flex gap-4 mt-4">
-                <Button type="primary" onClick={onNext} className="w-[60%] font-medium py-5" loading={isLoading}>
+                <Button type="primary" htmlType="submit" className="w-[60%] font-medium py-5" loading={isLoading}>
                     التالي
                 </Button>
                 <Button type="default" onClick={onBack} className="w-[40%] font-medium py-5" disabled={isLoading}>
