@@ -145,3 +145,37 @@ You can use CSS variables directly:
 4. **Performance**: Optimized with Tailwind CSS classes
 5. **Readability**: Clear and expressive color names
 6. **TypeScript Support**: All colors are supported in IntelliSense
+
+## Authentication Pages
+
+### 1. Login
+- Login using either email or phone number with password.
+- User can toggle between login methods (clear switch UI).
+- Validation ensures either email or phone is required.
+- On success, a toast is shown and user state is updated.
+
+### 2. Register
+- Create a new account with all required fields (full name, store name, store URL, business type, email, phone, password, and confirmation).
+- Full name is automatically split into first_name and last_name before submission.
+- Max length validation: first_name (60), last_name (60), store_name (120), store_url (200).
+- Password and confirmation must match.
+- Toast notifications for success and error.
+
+### 3. OTP
+- Enter the verification code sent via email or phone.
+- User-friendly input with auto-focus for each digit.
+
+### 4. Forgot Password
+- Enter email to receive a password reset link.
+- Success and error toasts are shown based on the response.
+- Proper error handling and user feedback.
+
+### 5. Reset Password
+- Enter and confirm a new password.
+- Password and confirmation must match.
+- Success and error toasts are shown based on the response.
+- Proper error handling and user feedback.
+
+---
+
+All authentication pages use Ant Design Form, professional toast notifications (react-hot-toast), and advanced validation for a modern UX.
